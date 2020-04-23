@@ -11,7 +11,7 @@ import pytz
 import re
 import sys
 import urllib.request
-from matplotlib import rcParams
+import matplotlib 
 
 CSV_FILE = 'covid-19-daily.csv'
 
@@ -30,7 +30,7 @@ def main():
 
     curr_cases = curr_deaths = 0
     if response_file:
-        curr_cases, curr_deaths = load_curr(response_file)         
+        curr_cases, curr_deaths = load_curr(response_file)
     else:
         curr_cases, curr_deaths = fetch_curr()
 
@@ -43,9 +43,12 @@ def main():
 
 def write_image():
     df = pandas.read_csv(CSV_FILE)
-    rcParams.update({'figure.autolayout': True})
-    fig = df.plot('Date', secondary_y=('New cases', 'New deaths', 'Cumulative deaths'), rot=30).get_figure()
-    fig.savefig('covid-19-fig.png')
+    matplotlib.rcParams.update({'figure.autolayout': True})
+    fig1 = df.plot('Date', secondary_y=('New cases', 'New deaths', 'Cumulative deaths'), rot=30, title='Linear Scale').get_figure()
+    fig1.savefig('covid-19-fig.png')
+    fig2 = df.plot('Date', rot=30, title='Log Scale', logy=True)
+    fig2.yaxis.set_major_formatter(matplotlib.ticker.StrMethodFormatter('{x:,.0f}'))
+    fig2.figure.savefig('covid-19-log-fig.png')
 
 
 def write_new(prev_cases, prev_deaths, curr_cases, curr_deaths, curr_date):
@@ -78,7 +81,7 @@ def fetch_curr():
     with urllib.request.urlopen(FETCH_URL) as response:
         return read_curr(response)
 
-             
+
 def load_curr(path):
     with open(path, 'r') as f:
         return read_curr(f)

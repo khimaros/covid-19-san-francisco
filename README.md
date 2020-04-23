@@ -6,6 +6,8 @@ CSV and plot are updated automatically daily at 10am PST using GitHub actions.
 
 ![figure](covid-19-fig.png)
 
+![figure](covid-19-log-fig.png)
+
 Also available in [tabular form (CSV)](covid-19-daily.csv).
 
 Updates are sourced from the [San Francisco Department of Public Health website](https://www.sfdph.org/dph/alerts/coronavirus.asp).

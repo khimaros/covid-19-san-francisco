@@ -33,6 +33,6 @@ jobs:
       run: python ./update-covid-19.py /home/runner/work/_temp/_github_home/swintonhttpieaction.response.body
         
     - name: Commit the changed files
-      uses: actions-go/push@master
+      uses: actions-go/push@v1
       with:
         commit-message: '[automatic] update covid-19 csv and figure'

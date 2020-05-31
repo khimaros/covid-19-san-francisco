@@ -19,7 +19,7 @@ jobs:
           python-version: '3.x'
 
     - name: Fetch latest data from SF DPH
-      uses: swinton/httpie.action@1.0.6
+      uses: mohamedMok/httpie.action@master
       with:
         args: GET www.sfdph.org/dph/alerts/coronavirus.asp
 

@@ -30,7 +30,7 @@ jobs:
       run: find $HOME
 
     - name: Execute the script to update
-      run: python ./update-covid-19.py /home/runner/work/_temp/_github_home/swintonhttpieaction.response.body
+      run: python ./update-covid-19.py /home/runner/work/_temp/_github_home/mohamedMokhttpieaction.response.body
         
     - name: Commit the changed files
       uses: actions-go/push@v1

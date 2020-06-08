@@ -91,7 +91,7 @@ def read_curr(response):
     for line in response.readlines():
         m = FETCH_RE_CASES.match(str(line))
         if m:
-            curr_cases = m.groups()[0]
+            curr_cases = m.groups()[1]
 
         m = FETCH_RE_DEATHS.match(str(line))
         if m:

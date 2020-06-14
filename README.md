@@ -1,5 +1,7 @@
 # covid-19-san-francisco
 
+**This repository is no longer being updated**. See also: https://data.sfgov.org/stories/s/dak2-gvuj
+
 Daily updates on the number of new cases and total cases in San Francisco.
 
 CSV and plot are updated automatically daily at 10am PST using GitHub actions.
